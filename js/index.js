@@ -37,3 +37,34 @@ messageForm.addEventListener("submit", (e) => {
   newMessage.appendChild(removeButton);
   messageList.appendChild(newMessage);
 });
+
+/*  lesson-6.1 start here*/
+/*creating XMLHttp Request */
+let githubRequest = new XMLHttpRequest();
+githubRequest.open("GET", "https://api.github.com/users/abebetesso/repos");
+githubRequest.send();
+
+githubRequest.onload = function () {
+  const repositories = JSON.parse(this.response);
+  renderHTML(repositories);
+  setTarget();
+};
+/*accessing files */
+function renderHTML(data) {
+  const projectSection = document.getElementById("projects");
+  const projectList = projectSection.querySelector("ul");
+  for (let i = 0; i < data.length; i++) {
+    let project = document.createElement("li");
+    project.innerHTML = `<a class="link-to-github" id="pro" href="${data[i].html_url}"> ${data[i].name}</a> <p id="pro">${data[i].description}</p>`;
+
+    projectList.appendChild(project);
+  }
+}
+/*target_blank set up for a tags */
+function setTarget() {
+  var target_blank = document.querySelectorAll("section a");
+  for (let i = 0; i < target_blank.length; i++) {
+    target_blank[i].setAttribute("target", "_blank");
+  }
+}
+/*lesson-6.1 end here */

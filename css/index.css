@@ -46,10 +46,11 @@ body {
   font-size: larger;
 }
 img {
-  width: 300px;
+  margin-top: 90px;
+  width: 200px;
   padding: 20px;
+  border-radius: 1.5em;
 }
-
 #container {
   padding: 20px;
   margin-bottom: 40px;
@@ -83,7 +84,7 @@ p a:hover {
   display: inline-flex;
   margin-right: 40px;
   padding: 10px;
-  border: 1px solid #06b3e9;
+  border: 1px solid #5d06e9;
   border-radius: 0.25em;
   list-style: none;
   font-size: larger;
@@ -112,6 +113,19 @@ strong,
   font-size: 1em;
   line-height: 2;
 }
+#projects {
+  margin-top: 10px;
+}
+.link-to-github {
+  color: blue;
+  font-size: 18px;
+  align-content: space-between;
+  font-style: italic;
+}
+section ul li {
+  list-style: none;
+  justify-content: space-between;
+}
 form {
   display: flex;
   flex-wrap: wrap;
@@ -134,7 +148,7 @@ textarea {
 button {
   color: #fff;
   font-size: large;
-  background-color: #00008b;
+  background-color: #2a2a93;
   padding: 5px;
 }
 a span {
@@ -182,5 +196,11 @@ footer:hover {
   body,
   .header {
     background-color: darkslategrey;
+  }
+  #skills ul li {
+    border: 1px solid rgb(240, 175, 10);
+  }
+  .link-to-github {
+    color: orange;
   }
 }
