@@ -39,16 +39,6 @@ messageForm.addEventListener("submit", (e) => {
 });
 
 /*  lesson-6.1 start here*/
-/*creating XMLHttp Request */
-let githubRequest = new XMLHttpRequest();
-githubRequest.open("GET", "https://api.github.com/users/abebetesso/repos");
-githubRequest.send();
-
-githubRequest.onload = function () {
-  const repositories = JSON.parse(this.response);
-  renderHTML(repositories);
-  setTarget();
-};
 /*accessing files */
 function renderHTML(data) {
   const projectSection = document.getElementById("projects");
@@ -68,3 +58,23 @@ function setTarget() {
   }
 }
 /*lesson-6.1 end here */
+
+/*lesson-6.2 start */
+const fetchData = fetch("https://api.github.com/users/abebetesso/repos");
+fetchData
+  .then((response) => {
+    return response.json();
+  })
+  //accessing data by event listener function
+  .then((data) => {
+    if (data.length >= 0) {
+      renderHTML(data);
+    } else {
+      throw new Error("The error response message");
+    }
+  })
+  //adding catch() to handle error
+  .catch((error) => {
+    console.log(error, "error");
+  });
+/*lesson-6.2 end */
