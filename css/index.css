@@ -18,7 +18,7 @@ body {
   margin-bottom: 20px;
   position: fixed;
   width: 100%;
-  border-bottom: 2px solid yellow;
+  border-bottom: 1px solid yellow;
 }
 .header ul {
   list-style: none;
@@ -45,6 +45,19 @@ body {
   font-weight: 800;
   font-size: larger;
 }
+#image {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: stretch;
+}
+#picture-name {
+  font-size: 45px;
+  font-weight: 700;
+  margin-left: 50px;
+}
 img {
   margin-top: 90px;
   width: 200px;
@@ -56,9 +69,8 @@ img {
   margin-bottom: 40px;
 }
 h1,
-h2,
-h3 {
-  padding-top: 50px;
+h2 {
+  padding: 50px 20px 20px 0;
   line-height: 2.25;
   color: rgb(240, 175, 10);
 }
@@ -80,14 +92,17 @@ p a:hover {
   font-weight: 800;
   transform: scale(1.2);
 }
-#skills ul li {
-  display: inline-flex;
-  margin-right: 40px;
-  padding: 10px;
-  border: 1px solid #5d06e9;
-  border-radius: 0.25em;
-  list-style: none;
-  font-size: larger;
+i {
+  margin-right: 5px;
+}
+.S-List {
+  font-size: 18px;
+  display: inline-block;
+  border: 2px solid #5d06e9;
+  color: #ccc;
+  border-radius: 0.5em;
+  padding: 0.5em 0.75em;
+  margin-bottom: 0.5em;
 }
 .experience-list {
   display: flex;
@@ -150,17 +165,36 @@ button {
   font-size: large;
   background-color: #2a2a93;
   padding: 5px;
+  margin: 5px;
 }
 a span {
-  color: burlywood;
+  color: azure;
   font-size: 1em;
+}
+a span:hover {
+  text-decoration: underline;
+  color: #fff;
 }
 
 button:hover {
   background-color: purple;
   color: white;
 }
-
+p i {
+  color: #1884e9;
+}
+#git {
+  color: #000;
+}
+#messages {
+  color: bisque;
+  font-size: large;
+  text-decoration: none;
+  padding: 20px;
+}
+#messages ul li a {
+  text-decoration: none;
+}
 footer {
   background-color: #334257;
   padding: 20px;
@@ -171,8 +205,9 @@ footer:hover {
 }
 /* media query */
 @media (max-width: 600px) {
-  #skills ul li,
+  .S-List,
   .period {
+    width: 80px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -191,14 +226,18 @@ footer:hover {
   .header {
     background-color: darkcyan;
   }
+  .S-List {
+    margin-right: 20px;
+  }
 }
 @media (min-width: 1201px) {
   body,
   .header {
     background-color: darkslategrey;
   }
-  #skills ul li {
-    border: 1px solid rgb(240, 175, 10);
+  .S-List {
+    border: 2px solid rgb(240, 175, 10);
+    margin-right: 30px;
   }
   .link-to-github {
     color: orange;

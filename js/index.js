@@ -10,6 +10,7 @@ const skillSection = document.getElementById("skills");
 const skillsList = skillSection.querySelector("ul");
 for (let i = 0; i < skills.length; i++) {
   const skill = document.createElement("li");
+  skill.classList.add("S-List");
   skill.innerText = skills[i];
   skillsList.appendChild(skill);
 }
@@ -39,23 +40,13 @@ messageForm.addEventListener("submit", (e) => {
 });
 
 /*  lesson-6.1 start here*/
-/*creating XMLHttp Request */
-let githubRequest = new XMLHttpRequest();
-githubRequest.open("GET", "https://api.github.com/users/abebetesso/repos");
-githubRequest.send();
-
-githubRequest.onload = function () {
-  const repositories = JSON.parse(this.response);
-  renderHTML(repositories);
-  setTarget();
-};
 /*accessing files */
 function renderHTML(data) {
   const projectSection = document.getElementById("projects");
   const projectList = projectSection.querySelector("ul");
   for (let i = 0; i < data.length; i++) {
     let project = document.createElement("li");
-    project.innerHTML = `<a class="link-to-github" id="pro" href="${data[i].html_url}"> ${data[i].name}</a> <p id="pro">${data[i].description}</p>`;
+    project.innerHTML = `<a class="link-to-github" href="${data[i].html_url}"> ${data[i].name}</a> <p>${data[i].description}</p>`;
 
     projectList.appendChild(project);
   }
@@ -68,3 +59,24 @@ function setTarget() {
   }
 }
 /*lesson-6.1 end here */
+
+/*lesson-6.2 start */
+const fetchData = fetch("https://api.github.com/users/abebetesso/repos");
+fetchData
+  .then((response) => {
+    return response.json();
+  })
+  //accessing data by event listener function
+  .then((data) => {
+    if (data.length >= 0) {
+      renderHTML(data);
+      setTarget();
+    } else {
+      throw new Error("The error response message");
+    }
+  })
+  //adding catch() to handle error
+  .catch((error) => {
+    console.log(error, "error");
+  });
+/*lesson-6.2 end */
