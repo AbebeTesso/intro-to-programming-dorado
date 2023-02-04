@@ -10,6 +10,7 @@ const skillSection = document.getElementById("skills");
 const skillsList = skillSection.querySelector("ul");
 for (let i = 0; i < skills.length; i++) {
   const skill = document.createElement("li");
+  skill.classList.add("S-List");
   skill.innerText = skills[i];
   skillsList.appendChild(skill);
 }
@@ -45,7 +46,7 @@ function renderHTML(data) {
   const projectList = projectSection.querySelector("ul");
   for (let i = 0; i < data.length; i++) {
     let project = document.createElement("li");
-    project.innerHTML = `<a class="link-to-github" id="pro" href="${data[i].html_url}"> ${data[i].name}</a> <p id="pro">${data[i].description}</p>`;
+    project.innerHTML = `<a class="link-to-github" href="${data[i].html_url}"> ${data[i].name}</a> <p>${data[i].description}</p>`;
 
     projectList.appendChild(project);
   }
@@ -69,6 +70,7 @@ fetchData
   .then((data) => {
     if (data.length >= 0) {
       renderHTML(data);
+      setTarget();
     } else {
       throw new Error("The error response message");
     }
