@@ -236,7 +236,7 @@ footer:hover {
     background-color: darkslategrey;
   }
   .S-List {
-    border: 2px solid rgb(240, 175, 10);
+    border: 2px solid #ffb00f;
     margin-right: 30px;
   }
   .link-to-github {

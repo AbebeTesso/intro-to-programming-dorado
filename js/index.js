@@ -5,7 +5,7 @@ const copyright = document.createElement("p");
 let mName = "Abebe Tesso";
 copyright.innerHTML = `&#169; ${mName} ${thisYear}`;
 footer.appendChild(copyright);
-const skills = ["HTML", "CSS", "JavaScript"];
+const skills = ["HTML", "CSS", "JavaScript", "Git"];
 const skillSection = document.getElementById("skills");
 const skillsList = skillSection.querySelector("ul");
 for (let i = 0; i < skills.length; i++) {
